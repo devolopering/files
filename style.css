@@ -5,7 +5,7 @@
 }
 
 :root {
-  --gray: rgba(107, 107, 108, 0.4);
+  --gray: rgba(107, 107, 108, 0.1);
   --shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.15);
   --radius: 20px;
   --pt-sans: "PT Sans", sans-serif;
@@ -21,23 +21,26 @@ body {
   padding: 20px;
 }
 
-article {
+main {
+  max-width: 1100px;
+  margin: auto;
+}
+
+.cards {
   display: flex;
   gap: 5rem;
-
   box-shadow: var(--shadow);
   border-radius: var(--radius);
   padding: 4rem 7rem;
 }
 
-article > div {
+.cards > div {
   padding-right: 7rem;
 }
 
-article > div:not(:last-child) {
+.cards > div:not(:last-child) {
   border-right: 2px solid var(--gray);
 }
-
 
 .img-wrapper {
   width: 90px;
@@ -62,28 +65,100 @@ p {
 }
 
 @media screen and (max-width: 855px) {
-  article {
+  .cards {
     flex-direction: column;
     box-shadow: none;
     gap: 3rem;
   }
-
-  article > div {
+  .cards > div {
     box-shadow: var(--shadow);
     border-radius: var(--radius);
     padding: 2rem 4rem;
-
+    cursor: pointer;
     display: flex;
     gap: 2rem;
     align-items: center;
     justify-content: flex-start;
   }
-
-  article > div:not(:last-child) {
+  .cards > div:not(:last-child) {
     border: none;
   }
-
+  .cards > div:hover {
+    border: 2px solid dodgerblue;
+  }
   .img-wrapper {
     margin-bottom: 0;
   }
 }
+@media screen and (max-width: 600px) {
+  .cards {
+    flex-direction: column;
+    box-shadow: var(--shadow);
+    gap: 3rem;
+    padding: 2rem 3rem;
+  }
+  .cards > div {
+    box-shadow: none;
+    border-radius: none;
+    cursor: auto;
+    display: grid;
+    gap: 2rem;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  .cards > div:not(:last-child) {
+    border: none;
+  }
+  .cards > div:hover {
+    border: none;
+  }
+  .img-wrapper {
+    margin-bottom: 0;
+  }
+}
+.animat_image {
+  display: flex;
+  align-items: center;
+  margin-top: 4rem;
+  box-shadow: var(--shadow);
+  height: 350px;
+  background-image: url("./images/fura.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.animat_image div {
+  background: linear-gradient(55deg, rgb(27, 114, 117), rgb(27, 114, 117) 50%, transparent 50%, transparent);
+  height: 100%;
+  width: 100%;
+  padding-right: 25rem;
+  display: flex;
+  align-items: center;
+}
+.animat_image h2 {
+  font-family: var(--exo-2);
+  font-weight: 600;
+  font-size: clamp(2rem, 5vw, 4.8rem);
+  margin-bottom: 0.5em;
+  color: #fff;
+  padding: 14rem 14rem 13rem 7rem;
+  width: 100%;
+}
+@media screen and (max-width: 855px) {
+  .animat_image {
+    margin: 4rem 7rem;
+  }
+  .animat_image div {
+    background: linear-gradient(55deg, rgb(27, 114, 117), rgb(27, 114, 117) 55%, transparent 40%, transparent);
+    height: 100%;
+    width: 100%;
+    padding-right: 25rem;
+    display: flex;
+    align-items: center;
+  }
+}
+@media screen and (max-width: 600px) {
+  .animat_image {
+    display: none;
+  }
+}/*# sourceMappingURL=style.css.map */
